@@ -19,8 +19,6 @@
 #define TRACE_GROUP "MAIN"
 
 using namespace mbed;
-using namespace RAK;
-using namespace horos;
 
 void Nucleo::Init()
 {
