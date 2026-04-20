@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-FILE=${1:-build/HelloWorldProject.elf}
+FILE=${1:-build/Nucleo_U575.elf}
 
 sudo openocd \
   -f interface/stlink.cfg \
