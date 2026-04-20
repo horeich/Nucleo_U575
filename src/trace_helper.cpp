@@ -25,12 +25,11 @@
 #include "trace_helper.h"
 
 #ifdef ENABLE_TRACE
-#include "platform/PlatformMutex.h"
-
+#include "rtos/Mutex.h"
 /**
  * Local mutex object for synchronization
  */
-static PlatformMutex mutex;
+static rtos::Mutex mutex;
 
 static void serial_lock();
 static void serial_unlock();
