@@ -119,11 +119,8 @@
 			"*.rh": "cpp",
 			"*.inc": "cpp",
 			"mstd_mutex": "cpp",
-<<<<<<< HEAD:Nucleo.code-workspace
 			"stack": "cpp",
 			"buffer": "cpp",
-=======
->>>>>>> 464ab26d095f37f26f6fc575f061df5ef157a959:OilSense.code-workspace
 			"any": "cpp",
 			"variant": "cpp"
 		},
