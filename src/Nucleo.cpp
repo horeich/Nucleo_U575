@@ -25,7 +25,7 @@ void Nucleo::Init()
     setup_trace();
     DigitalOut(LED2, 1);
 
-    tr_info("### Nucleo Test App [%s], version: %s ###", "NUCLEO", ENCODE_VERSION);
+    // tr_info("### Nucleo Test App [%s], version: %s ###", "NUCLEO", ENCODE_VERSION);
 
     // rtos::ThisThread::sleep_for(std::chrono::milliseconds::max());
 }
