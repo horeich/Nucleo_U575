@@ -31,18 +31,30 @@ int main()
 	// }
 	Nucleo::Init();
 
-	 printf("TMP117 test start\n");
+	printf("TMP117 test start\n");
 
-    // Adjust pins to your board wiring
-    TMP117 sensor(I2C_SDA, I2C_SCL, 400000);
+	// Adjust pins to your board wiring
+	TMP117 sensor(I2C_SDA, I2C_SCL, 400000);
 
-    while (true)
-    {
-        float temp = sensor.read_temperature();
-        printf("Temperature: %.2f C\n", temp);
+	uint16_t id = sensor.get_device_id();
 
-        ThisThread::sleep_for(1s);
-    }
+	sensor.unlock_registers();
+	sensor.set_conversion_cycle_time(TMP117::CONV_CYCLE_1_S);
+	sensor.set_averaging_mode(TMP117::AVG_MODE_64_SAMPLES);
+	// TODO: set offset temp
+	sensor.lock_registers();
+
+	printf("Device id = %d\n", (int)id);
+
+	while (true)
+	{
+		sensor.set_oneshot_conversion_mode();
+
+		float temp = sensor.read_temperature();
+		printf("Temperature: %.2f C\n", temp);
+
+		ThisThread::sleep_for(1s);
+	}
 
 	return 1;
 }
