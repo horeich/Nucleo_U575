@@ -1,3 +1,6 @@
 [submodule "mbed-os"]
 	path = mbed-os
 	url = https://github.com/mbed-ce/mbed-os.git
+[submodule "tmp117"]
+	path = tmp117
+	url = git@github.com:horeich/tmp117
