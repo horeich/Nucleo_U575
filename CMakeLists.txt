@@ -56,8 +56,8 @@ include(mbed_project_setup)
 add_subdirectory(mbed-os)
 
 ###--------------------------------------------------------------------------------------------------
-## Add another subdirectory, for example subdirectory of a library (if needed)
-#add_subdirectory(YourLibrary)
+## Add tmp117 driver subdirectory
+add_subdirectory(tmp117)
 
 ### End of block
 ######################################################################################################
@@ -82,10 +82,12 @@ https://github.com/mbed-ce/mbed-os/wiki/MbedOS-configuration#configuration-via-c
 # Important: The mbed-os and mbed-baremetal libraries are object libraries, so they should ONLY be
 # linked to executables, not to other libraries. Libraries should link to `mbed-core-flags` instead.
 if("MBED_CONF_TARGET_APPLICATION_PROFILE=bare-metal" IN_LIST MBED_CONFIG_DEFINITIONS)
-    target_link_libraries(${PROJECT_NAME} mbed-baremetal)
+    target_link_libraries(${PROJECT_NAME} PRIVATE mbed-baremetal)
 else()
-    target_link_libraries(${PROJECT_NAME} mbed-os)
+    target_link_libraries(${PROJECT_NAME} PRIVATE mbed-os)
 endif()
+
+target_link_libraries(${PROJECT_NAME} PRIVATE tmp117)
 
 ### link user library (if needed)
 #target_link_libraries(${PROJECT_NAME} YourLibrary)
