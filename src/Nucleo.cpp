@@ -27,5 +27,5 @@ void Nucleo::Init()
 
     tr_info("### Nucleo Test App [%s], version: %s ###", "NUCLEO", ENCODE_VERSION);
 
-    rtos::ThisThread::sleep_for(std::chrono::milliseconds::max());
+    // rtos::ThisThread::sleep_for(std::chrono::milliseconds::max());
 }
